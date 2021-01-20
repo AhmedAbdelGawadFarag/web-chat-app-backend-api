@@ -13,12 +13,14 @@ chat application client side : https://github.com/ahmedbeeka/web-chat-app-fronte
 * api : rest-api
 
 
-# Deployment instructions
+# Installation instructions
 
 1. Install the dependencies through npm or yarn 
 
-2. Create the Database through : rails db:create
+2. Install the gems through bundle install 
 
-3. Create the schema through  : rails db:migrate
+3. Create the Database through : rails db:create
+
+4. Create the schema through  : rails db:migrate
 
 4. enjoy the server 
