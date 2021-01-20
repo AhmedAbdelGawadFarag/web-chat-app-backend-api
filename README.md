@@ -1,24 +1,24 @@
 # README
+# `Info`
+rest-api using ruby on rails for web chat application.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+chat application client side : https://github.com/ahmedbeeka/web-chat-app-frontend
 
-Things you may want to cover:
+## `Technologies`
 
-* Ruby version
+* Ruby version : 2.7
 
-* System dependencies
+* Database : postgresql
 
-* Configuration
+* api : rest-api
 
-* Database creation
 
-* Database initialization
+# Deployment instructions
 
-* How to run the test suite
+1. Install the dependencies through npm or yarn 
 
-* Services (job queues, cache servers, search engines, etc.)
+2. Create the Database through : rails db:create
 
-* Deployment instructions
+3. Create the schema through  : rails db:migrate
 
-* ...
+4. enjoy the server 
