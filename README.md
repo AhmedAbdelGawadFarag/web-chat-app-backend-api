@@ -12,7 +12,7 @@ chat application client side : https://github.com/ahmedbeeka/web-chat-app-fronte
 
 * api : rest-api
 
-*http: websockets
+* http: websockets
 
 
 # Installation instructions
