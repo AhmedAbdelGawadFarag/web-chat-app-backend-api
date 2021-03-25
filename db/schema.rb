@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_23_210038) do
+ActiveRecord::Schema.define(version: 2021_03_25_183057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "friends", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "friend_id", null: false
+  create_table "messages", force: :cascade do |t|
+    t.string "body"
+    t.integer "sender_id", null: false
+    t.integer "receiver_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.string "body"
+  create_table "requests", force: :cascade do |t|
     t.integer "sender_id", null: false
     t.integer "receiver_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2021_01_23_210038) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "friends", "users"
-  add_foreign_key "friends", "users", column: "friend_id"
   add_foreign_key "messages", "users", column: "receiver_id"
   add_foreign_key "messages", "users", column: "sender_id"
+  add_foreign_key "requests", "users", column: "receiver_id"
+  add_foreign_key "requests", "users", column: "sender_id"
 end
