@@ -16,4 +16,9 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:sender_id, :receiver_id, :body)
   end
 
+  def index
+    m = Message.get_messages(params["user_id"],params["friendship_id"])
+    render json:m
+  end
+
 end
