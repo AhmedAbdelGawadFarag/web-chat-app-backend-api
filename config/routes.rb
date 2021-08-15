@@ -3,4 +3,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create]
   resources :auth, only: [:create]
   resources :messages, only: [:create]
+
+  resources :users do
+    resources :friendships,only: [:index]
+  end
+
 end

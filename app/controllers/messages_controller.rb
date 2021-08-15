@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
     else
       render json: message.errors, status: :conflict
     end
+
   end
 
   def message_params
