@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
     message = Message.new(message_params)
 
     if message.save
+      ActionCable.server.broadcast 'chat_channel', message
       render json: message
     else
       render json: message.errors, status: :conflict
@@ -17,8 +18,8 @@ class MessagesController < ApplicationController
   end
 
   def index
-    m = Message.get_messages(params["user_id"],params["friendship_id"])
-    render json:m
+    m = Message.get_messages(params["user_id"], params["friendship_id"])
+    render json: m
   end
 
 end
