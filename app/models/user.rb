@@ -10,7 +10,10 @@ class User < ApplicationRecord
   has_many(:friends_b, class_name: :Friendship, foreign_key: :friend_b_id)
 
   has_many(:friend_as, through: :friends_b)
-  has_many(:friend_bs , through: :friends_a)
+  has_many(:friend_bs, through: :friends_a)
+
+  has_many(:user_rooms)
+  has_many(:rooms,through: :user_rooms)
 
   has_secure_password
 
