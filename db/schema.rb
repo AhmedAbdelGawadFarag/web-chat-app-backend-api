@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_26_212520) do
+ActiveRecord::Schema.define(version: 2021_09_28_060133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2021_09_26_212520) do
   create_table "messages", force: :cascade do |t|
     t.string "body"
     t.integer "sender_id", null: false
-    t.integer "receiver_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "room_id", null: false
   end
 
   create_table "requests", force: :cascade do |t|
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_09_26_212520) do
 
   add_foreign_key "friendships", "users", column: "friend_a_id"
   add_foreign_key "friendships", "users", column: "friend_b_id"
-  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "requests", "users", column: "receiver_id"
   add_foreign_key "requests", "users", column: "sender_id"

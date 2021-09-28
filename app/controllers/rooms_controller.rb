@@ -9,7 +9,6 @@ class RoomsController < ApplicationController
       farr.push({ "room_id": i.id, "users": i.users })
     end
 
-
     render json: farr
 
   end
