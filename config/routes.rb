@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :auth, only: [:create]
 
   resources :users do
-    resources :rooms, only: [:index]
+    resources :rooms, only: [:index,:show]
   end
 
   resources :users do

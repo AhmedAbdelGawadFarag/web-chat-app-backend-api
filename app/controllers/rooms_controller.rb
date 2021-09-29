@@ -13,4 +13,8 @@ class RoomsController < ApplicationController
 
   end
 
+  def show
+    render json: Room.get_messages(params[:id])
+  end
+
 end
