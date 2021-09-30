@@ -7,14 +7,10 @@ Rails.application.routes.draw do
   resources :auth, only: [:create]
 
   resources :users do
-    resources :rooms, only: [:index,:show]
+    resources :rooms, only: [:index, :show]
   end
 
-  resources :users do
-    resources :friendships do
-      resources :messages, only: [:create, :index]
-    end
-  end
+  resources :messages, only: [:create]
 
   resources :users do
     resources :friendships, only: [:index]

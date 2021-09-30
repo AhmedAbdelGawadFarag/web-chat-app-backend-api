@@ -6,7 +6,7 @@ class Room < ApplicationRecord
 
   def self.get_messages(room_id)
     messages = Message.joins("inner join users on users.id = messages.sender_id").where("messages.room_id = #{room_id}")
-                      .select("messages.*,users.email,users.name")
+                      .select("messages.*,users.email as user_email,users.name as user_name")
     return messages
   end
 
