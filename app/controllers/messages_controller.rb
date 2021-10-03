@@ -5,7 +5,8 @@ class MessagesController < ApplicationController
     message = Message.new(message_params)
 
     if message.save
-      ActionCable.server.broadcast 'chat_channel', message
+      str = 'chat_' + message.room_id.to_s()
+      ActionCable.server.broadcast str, message
       render json: message
     else
       render json: message.errors, status: :conflict
